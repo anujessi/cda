@@ -56,6 +56,11 @@ public class UserController {
 	public String deleteUserById(@PathVariable int id) {
 		return userService.deletUserById(id);
 	}
+	@GetMapping("/email/{email}")
+	public  ResponseEntity<?> findUserByEmail(@PathVariable String email){
+		return userService.findUserByEmail(email);
+	}
+	
 
 	
 }

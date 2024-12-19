@@ -19,6 +19,8 @@ public interface UserService {
 
 	ResponseEntity<?> verifyOtp(int id, int otp);
 
+	ResponseEntity<?> findUserByEmail(String email);
+
 	//ResponseEntity<?> updateStudentYear(int id, String year);
 
 	

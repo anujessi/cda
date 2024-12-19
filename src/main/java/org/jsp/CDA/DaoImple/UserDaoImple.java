@@ -45,6 +45,11 @@ public class UserDaoImple implements UserDao {
 		
 	}
 
+	@Override
+	public Optional<User> findUserByEmail(String email) {
+		return userRepo.findUserByEmail(email);
+	}
+
 	
 	
 	}

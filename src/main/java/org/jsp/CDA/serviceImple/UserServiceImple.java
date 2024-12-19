@@ -100,6 +100,22 @@ public class UserServiceImple implements UserService {
 		return ResponseEntity.status(HttpStatus.OK.value()).body(ResponseStrcture.builder()
 				.httpStatus(HttpStatus.OK.value()).message("find user successfully").body(user.get()).build());
 	}
+	
+	@Override
+	public ResponseEntity<?> findUserByEmail(String email) {
+		
+		Optional <User> user=userDao.findUserByEmail(email);
+		if (user.isEmpty()) {
+		throw InvalidUserIdException.builder().message("no users found").build();
+	}
+	return ResponseEntity.status(HttpStatus.OK.value()).body(ResponseStrcture.builder()
+			.httpStatus(HttpStatus.OK.value()).message("find user successfully").body(user.get()).build());
+
+		
+			
+		}
+
+
 
 	@Override
 	public ResponseEntity<?> login(Authantication auth) {
@@ -145,6 +161,9 @@ public class UserServiceImple implements UserService {
 							.message("login  successfully").body(optional.get()).build());
 	}
 
+
+
+	
 	
 	
 
